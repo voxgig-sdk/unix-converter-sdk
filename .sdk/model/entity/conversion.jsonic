@@ -1,0 +1,91 @@
+# Entity: conversion
+
+main: kit: entity: conversion: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "input"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "output"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "success"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "conversion"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "2021-01-01T00:00:00Z"
+                kind: "query"
+                name: "date"
+                orig: "date"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "YYYY-MM-DD HH:mm:ss"
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1609459200
+                kind: "query"
+                name: "timestamp"
+                orig: "timestamp"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "America/New_York"
+                kind: "query"
+                name: "timezone"
+                orig: "timezone"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/convert"
+          parts: [
+            "convert"
+          ]
+          select: {
+            exist: [
+              "date"
+              "format"
+              "timestamp"
+              "timezone"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,28 @@
+# BasicConversionFlow
+
+main: kit: flow: BasicConversionFlow:
+{
+  entity: "conversion",
+  kind: "basic",
+  name: "BasicConversionFlow",
+  step: [
+    {
+      input: {
+        ref: "conversion_ref01",
+        srcdatavar: "conversion_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-conversion_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicConversionFlow"
+}

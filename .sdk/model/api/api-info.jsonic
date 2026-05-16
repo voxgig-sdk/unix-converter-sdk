@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://unixonvert.api/v1/"
+      }
+      description: "The Unix Converter API allows users to convert between various Unix time formats and human-readable date formats. It provides easy methods for timestamp conversion, time zone adjustments, and date formatting, catering to developers in need of Unix time manipulations."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://unixonvert.api/v1"
+        }
+      ]
+      title: "Unix Converter API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

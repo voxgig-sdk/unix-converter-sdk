@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "conversion": {
+      "CONVERSION00": {
+        "input": {},
+        "output": {},
+        "success": true
+      },
+      "CONVERSION01": {
+        "input": {},
+        "output": {},
+        "success": true
+      },
+      "CONVERSION02": {
+        "input": {},
+        "output": {},
+        "success": true
+      }
+    }
+  },
+  "new": {
+    "conversion": {
+      "conversion_ref01": {
+        "input": {},
+        "output": {},
+        "success": true
+      }
+    }
+  }
+}

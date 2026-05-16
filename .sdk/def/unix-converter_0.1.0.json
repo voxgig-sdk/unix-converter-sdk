@@ -1,0 +1,224 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Unix Converter API",
+    "description": "The Unix Converter API allows users to convert between various Unix time formats and human-readable date formats. It provides easy methods for timestamp conversion, time zone adjustments, and date formatting, catering to developers in need of Unix time manipulations.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://unixonvert.api/v1/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://unixonvert.api/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/convert": {
+      "get": {
+        "summary": "Convert Unix timestamp",
+        "description": "Converts Unix timestamps to human-readable date formats or converts human-readable dates to Unix timestamps. Supports timezone adjustments and custom date formatting.",
+        "operationId": "convertTimestamp",
+        "parameters": [
+          {
+            "name": "timestamp",
+            "in": "query",
+            "description": "Unix timestamp to convert to human-readable format (in seconds or milliseconds)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": 1609459200
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Human-readable date string to convert to Unix timestamp (ISO 8601 format recommended)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "description": "Timezone for the conversion (e.g., 'UTC', 'America/New_York', 'Europe/London')",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "UTC",
+              "example": "America/New_York"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Output date format string (e.g., 'YYYY-MM-DD', 'DD/MM/YYYY HH:mm:ss')",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "YYYY-MM-DD HH:mm:ss"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful conversion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "input": {
+                      "type": "object",
+                      "properties": {
+                        "timestamp": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1609459200
+                        },
+                        "date": {
+                          "type": "string",
+                          "example": "2021-01-01T00:00:00Z"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "example": "UTC"
+                        }
+                      }
+                    },
+                    "output": {
+                      "type": "object",
+                      "properties": {
+                        "timestamp": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "Unix timestamp in seconds",
+                          "example": 1609459200
+                        },
+                        "formatted_date": {
+                          "type": "string",
+                          "description": "Human-readable formatted date",
+                          "example": "2021-01-01 00:00:00"
+                        },
+                        "iso_8601": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "ISO 8601 formatted date",
+                          "example": "2021-01-01T00:00:00Z"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "example": "UTC"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "timestampToDate": {
+                    "summary": "Convert Unix timestamp to date",
+                    "value": {
+                      "success": true,
+                      "input": {
+                        "timestamp": 1609459200,
+                        "timezone": "UTC"
+                      },
+                      "output": {
+                        "timestamp": 1609459200,
+                        "formatted_date": "2021-01-01 00:00:00",
+                        "iso_8601": "2021-01-01T00:00:00Z",
+                        "timezone": "UTC"
+                      }
+                    }
+                  },
+                  "dateToTimestamp": {
+                    "summary": "Convert date to Unix timestamp",
+                    "value": {
+                      "success": true,
+                      "input": {
+                        "date": "2021-01-01T00:00:00Z",
+                        "timezone": "UTC"
+                      },
+                      "output": {
+                        "timestamp": 1609459200,
+                        "formatted_date": "2021-01-01 00:00:00",
+                        "iso_8601": "2021-01-01T00:00:00Z",
+                        "timezone": "UTC"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid timestamp or date format provided"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please provide either a valid Unix timestamp or a date string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An error occurred while processing the conversion"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Conversion"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Conversion",
+      "description": "Unix timestamp and date conversion operations"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+<?php
+declare(strict_types=1);
+
+// UnixConverter SDK configuration
+
+class UnixConverterConfig
+{
+    public static function make_config(): array
+    {
+        return [
+            "main" => [
+                "name" => "UnixConverter",
+            ],
+            "feature" => [
+                "test" => [
+          'options' => [
+            'active' => false,
+          ],
+        ],
+            ],
+            "options" => [
+                "base" => "https://unixonvert.api/v1",
+                "auth" => [
+                    "prefix" => "Bearer",
+                ],
+                "headers" => [
+          'content-type' => 'application/json',
+        ],
+                "entity" => [
+                    "conversion" => [],
+                ],
+            ],
+            "entity" => [
+        'conversion' => [
+          'fields' => [
+            [
+              'name' => 'input',
+              'req' => false,
+              'type' => '`$OBJECT`',
+              'active' => true,
+              'index$' => 0,
+            ],
+            [
+              'name' => 'output',
+              'req' => false,
+              'type' => '`$OBJECT`',
+              'active' => true,
+              'index$' => 1,
+            ],
+            [
+              'name' => 'success',
+              'req' => false,
+              'type' => '`$BOOLEAN`',
+              'active' => true,
+              'index$' => 2,
+            ],
+          ],
+          'name' => 'conversion',
+          'op' => [
+            'load' => [
+              'name' => 'load',
+              'points' => [
+                [
+                  'args' => [
+                    'query' => [
+                      [
+                        'example' => '2021-01-01T00:00:00Z',
+                        'kind' => 'query',
+                        'name' => 'date',
+                        'orig' => 'date',
+                        'reqd' => false,
+                        'type' => '`$STRING`',
+                        'active' => true,
+                      ],
+                      [
+                        'example' => 'YYYY-MM-DD HH:mm:ss',
+                        'kind' => 'query',
+                        'name' => 'format',
+                        'orig' => 'format',
+                        'reqd' => false,
+                        'type' => '`$STRING`',
+                        'active' => true,
+                      ],
+                      [
+                        'example' => 1609459200,
+                        'kind' => 'query',
+                        'name' => 'timestamp',
+                        'orig' => 'timestamp',
+                        'reqd' => false,
+                        'type' => '`$INTEGER`',
+                        'active' => true,
+                      ],
+                      [
+                        'example' => 'America/New_York',
+                        'kind' => 'query',
+                        'name' => 'timezone',
+                        'orig' => 'timezone',
+                        'reqd' => false,
+                        'type' => '`$STRING`',
+                        'active' => true,
+                      ],
+                    ],
+                  ],
+                  'method' => 'GET',
+                  'orig' => '/convert',
+                  'parts' => [
+                    'convert',
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'date',
+                      'format',
+                      'timestamp',
+                      'timezone',
+                    ],
+                  ],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'active' => true,
+                  'index$' => 0,
+                ],
+              ],
+              'input' => 'data',
+              'key$' => 'load',
+            ],
+          ],
+          'relations' => [
+            'ancestors' => [],
+          ],
+        ],
+      ],
+        ];
+    }
+
+
+    public static function make_feature(string $name)
+    {
+        require_once __DIR__ . '/features.php';
+        return UnixConverterFeatures::make_feature($name);
+    }
+}
