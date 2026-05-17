@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/unix-converter-sdk/core"
+	"github.com/voxgig-sdk/unix-converter-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/unix-converter-sdk/go/utility/struct"
 )
 
 type ConversionEntity struct {

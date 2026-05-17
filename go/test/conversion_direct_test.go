@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/unix-converter-sdk"
-	"github.com/voxgig-sdk/unix-converter-sdk/core"
+	sdk "github.com/voxgig-sdk/unix-converter-sdk/go"
+	"github.com/voxgig-sdk/unix-converter-sdk/go/core"
 )
 
 func TestConversionDirect(t *testing.T) {

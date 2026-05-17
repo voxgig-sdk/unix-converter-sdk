@@ -1,10 +1,10 @@
 package voxgigunixconvertersdk
 
 import (
-	"github.com/voxgig-sdk/unix-converter-sdk/core"
-	"github.com/voxgig-sdk/unix-converter-sdk/entity"
-	"github.com/voxgig-sdk/unix-converter-sdk/feature"
-	_ "github.com/voxgig-sdk/unix-converter-sdk/utility"
+	"github.com/voxgig-sdk/unix-converter-sdk/go/core"
+	"github.com/voxgig-sdk/unix-converter-sdk/go/entity"
+	"github.com/voxgig-sdk/unix-converter-sdk/go/feature"
+	_ "github.com/voxgig-sdk/unix-converter-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

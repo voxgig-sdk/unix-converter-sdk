@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/unix-converter-sdk/core"
+	"github.com/voxgig-sdk/unix-converter-sdk/go/core"
 )
 
 type BaseFeature struct {

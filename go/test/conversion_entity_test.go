@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/unix-converter-sdk"
-	"github.com/voxgig-sdk/unix-converter-sdk/core"
+	sdk "github.com/voxgig-sdk/unix-converter-sdk/go"
+	"github.com/voxgig-sdk/unix-converter-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/unix-converter-sdk/go/utility/struct"
 )
 
 func TestConversionEntity(t *testing.T) {
