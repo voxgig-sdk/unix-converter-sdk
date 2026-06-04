@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'UNIXCONVERTER_TEST_CONVERSION_ENTID': {},
     'UNIXCONVERTER_TEST_LIVE': 'FALSE',
-    'UNIXCONVERTER_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.UNIXCONVERTER_TEST_LIVE
 
   if (live) {
     const client = new UnixConverterSDK({
-      apikey: env.UNIXCONVERTER_APIKEY,
     })
 
     let idmap: any = env['UNIXCONVERTER_TEST_CONVERSION_ENTID']

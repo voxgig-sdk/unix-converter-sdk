@@ -91,7 +91,6 @@ function conversion_basic_setup(extra)
     ["UNIXCONVERTER_TEST_CONVERSION_ENTID"] = idmap,
     ["UNIXCONVERTER_TEST_LIVE"] = "FALSE",
     ["UNIXCONVERTER_TEST_EXPLAIN"] = "FALSE",
-    ["UNIXCONVERTER_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function conversion_basic_setup(extra)
   if env["UNIXCONVERTER_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["UNIXCONVERTER_APIKEY"],
       },
       extra or {},
     })

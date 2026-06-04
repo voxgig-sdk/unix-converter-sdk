@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'UNIX_CONVERTER_TEST_CONVERSION_ENTID': idmap,
     'UNIX_CONVERTER_TEST_LIVE': 'FALSE',
     'UNIX_CONVERTER_TEST_EXPLAIN': 'FALSE',
-    'UNIX_CONVERTER_APIKEY': 'NONE',
   })
 
   idmap = env['UNIX_CONVERTER_TEST_CONVERSION_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new UnixConverterSDK(merge([
       {
-        apikey: env.UNIX_CONVERTER_APIKEY,
       },
       extra
     ]))
