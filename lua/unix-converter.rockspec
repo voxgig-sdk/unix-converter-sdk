@@ -8,12 +8,14 @@ source = {
   dir = "unix-converter-sdk/lua"
 }
 description = {
-  summary = "UnixConverter SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Unix Converter public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/unix-converter-sdk",
+  issues_url = "https://github.com/voxgig-sdk/unix-converter-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "unix-converter" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The PHP SDK for the UnixConverter API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/unix-converter-sdk
+composer require voxgig-sdk/unix-converter
 ```
 
 

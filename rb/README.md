@@ -10,13 +10,13 @@ The Ruby SDK for the UnixConverter API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install unix-converter-sdk
+gem install voxgig-sdk-unix-converter
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "unix-converter-sdk"
+gem "voxgig-sdk-unix-converter"
 ```
 
 Then run:

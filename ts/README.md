@@ -10,7 +10,7 @@ The TypeScript SDK for the UnixConverter API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install unix-converter
+npm install @voxgig-sdk/unix-converter
 ```
 ## Tutorial: your first API call
 

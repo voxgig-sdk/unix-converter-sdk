@@ -10,7 +10,7 @@ The Python SDK for the UnixConverter API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install unix-converter-sdk
+pip install voxgig-sdk-unix-converter
 ```
 
 Or install from source:
