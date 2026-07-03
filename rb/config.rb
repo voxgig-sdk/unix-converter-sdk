@@ -15,6 +15,9 @@ module UnixConverterConfig
       },
       "options" => {
         "base" => "https://unixonvert.api/v1",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -26,70 +29,72 @@ module UnixConverterConfig
         "conversion" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "input",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "output",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "success",
               "req" => false,
               "type" => "`$BOOLEAN`",
-              "active" => true,
               "index$" => 2,
             },
           ],
           "name" => "conversion",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "query" => [
                       {
+                        "active" => true,
                         "example" => "2021-01-01T00:00:00Z",
                         "kind" => "query",
                         "name" => "date",
                         "orig" => "date",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => "YYYY-MM-DD HH:mm:ss",
                         "kind" => "query",
                         "name" => "format",
                         "orig" => "format",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => 1609459200,
                         "kind" => "query",
                         "name" => "timestamp",
                         "orig" => "timestamp",
                         "reqd" => false,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => "America/New_York",
                         "kind" => "query",
                         "name" => "timezone",
                         "orig" => "timezone",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -110,11 +115,9 @@ module UnixConverterConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },

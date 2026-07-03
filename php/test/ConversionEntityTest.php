@@ -85,6 +85,7 @@ function conversion_basic_setup($extra)
         "UNIXCONVERTER_TEST_CONVERSION_ENTID" => $idmap,
         "UNIXCONVERTER_TEST_LIVE" => "FALSE",
         "UNIXCONVERTER_TEST_EXPLAIN" => "FALSE",
+        "UNIXCONVERTER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function conversion_basic_setup($extra)
     if ($env["UNIXCONVERTER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["UNIXCONVERTER_APIKEY"],
             ],
             $extra ?? [],
         ]);

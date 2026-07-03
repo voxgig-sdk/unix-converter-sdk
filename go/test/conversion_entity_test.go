@@ -117,6 +117,7 @@ func conversionBasicSetup(extra map[string]any) *entityTestSetup {
 		"UNIXCONVERTER_TEST_CONVERSION_ENTID": idmap,
 		"UNIXCONVERTER_TEST_LIVE":      "FALSE",
 		"UNIXCONVERTER_TEST_EXPLAIN":   "FALSE",
+		"UNIXCONVERTER_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["UNIXCONVERTER_TEST_CONVERSION_ENTID"])
@@ -127,6 +128,7 @@ func conversionBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["UNIXCONVERTER_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["UNIXCONVERTER_APIKEY"],
 			},
 			extra,
 		})

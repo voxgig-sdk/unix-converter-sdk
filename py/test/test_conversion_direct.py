@@ -59,12 +59,14 @@ def _conversion_direct_setup(mockres):
     env = runner.env_override({
         "UNIXCONVERTER_TEST_CONVERSION_ENTID": {},
         "UNIXCONVERTER_TEST_LIVE": "FALSE",
+        "UNIXCONVERTER_APIKEY": "NONE",
     })
 
     live = env.get("UNIXCONVERTER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("UNIXCONVERTER_APIKEY"),
         }
         client = UnixConverterSDK(merged_opts)
         return {

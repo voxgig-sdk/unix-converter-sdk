@@ -16,20 +16,7 @@ main: {
       ]
       title: "Unix Converter API"
       version: "1.0.0"
-      tagline: "Convert between Unix timestamps and human-readable dates"
-      docs_url: "https://freepublicapis.com/unix-converter-api"
-      about_md: `Unix Converter API is a small utility service for translating between Unix epoch timestamps and human-readable date/time representations. It is catalogued on [Free Public APIs](https://freepublicapis.com/unix-converter-api).
-
-What you get from the API:
-
-- Conversion between Unix time values and formatted date strings
-- Helpers for timestamp conversion, timezone adjustments, and date formatting
-
-Operational notes: the catalogue page reports CORS enabled and a sub-second average response time. No authentication scheme, licence, or rate-limit policy is documented on the catalogue page, so callers should treat behaviour as best-effort.`
-      entity_desc: {
-        conversion: "Operations that convert a value between a Unix epoch timestamp and a formatted date/time string."
-      }
-      auth: false
     }
   }
 }
+

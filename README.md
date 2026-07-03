@@ -1,19 +1,8 @@
 # UnixConverter SDK
 
-Convert between Unix timestamps and human-readable dates
+Unix Converter API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Unix Converter API
-
-Unix Converter API is a small utility service for translating between Unix epoch timestamps and human-readable date/time representations. It is catalogued on [Free Public APIs](https://freepublicapis.com/unix-converter-api).
-
-What you get from the API:
-
-- Conversion between Unix time values and formatted date strings
-- Helpers for timestamp conversion, timezone adjustments, and date formatting
-
-Operational notes: the catalogue page reports CORS enabled and a sub-second average response time. No authentication scheme, licence, or rate-limit policy is documented on the catalogue page, so callers should treat behaviour as best-effort.
 
 ## Try it
 
@@ -47,27 +36,31 @@ gem install unix-converter-sdk
 luarocks install unix-converter-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { UnixConverterSDK } from 'unix-converter'
 
-const client = new UnixConverterSDK({})
+const client = new UnixConverterSDK({
+  apikey: process.env.UNIX-CONVERTER_APIKEY,
+})
 
+// Load conversion data
+const conversion = await client.Conversion().load({})
+console.log(conversion.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -97,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Conversion** | Operations that convert a value between a Unix epoch timestamp and a formatted date/time string. | `/convert` |
+| **Conversion** |  | `/convert` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -107,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from unixconverter_sdk import UnixConverterSDK
 
-client = UnixConverterSDK({})
+client = UnixConverterSDK({
+    "apikey": os.environ.get("UNIX-CONVERTER_APIKEY"),
+})
 
 
 # Load a specific conversion
-conversion, err = client.Conversion(None).load(
-    {"id": "example_id"}, None
-)
+conversion, err = client.Conversion().load({"id": "example_id"})
+print(conversion)
 ```
 
 ### PHP
@@ -124,13 +119,14 @@ conversion, err = client.Conversion(None).load(
 <?php
 require_once 'unixconverter_sdk.php';
 
-$client = new UnixConverterSDK([]);
+$client = new UnixConverterSDK([
+    "apikey" => getenv("UNIX-CONVERTER_APIKEY"),
+]);
 
 
 // Load a specific conversion
-[$conversion, $err] = $client->Conversion(null)->load(
-    ["id" => "example_id"], null
-);
+[$conversion, $err] = $client->Conversion()->load(["id" => "example_id"]);
+print_r($conversion);
 ```
 
 ### Golang
@@ -138,8 +134,13 @@ $client = new UnixConverterSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/unix-converter-sdk/go"
 
-client := sdk.NewUnixConverterSDK(map[string]any{})
+client := sdk.NewUnixConverterSDK(map[string]any{
+    "apikey": os.Getenv("UNIX-CONVERTER_APIKEY"),
+})
 
+// Load conversion data
+conversion, err := client.Conversion(nil).Load(map[string]any{}, nil)
+fmt.Println(conversion)
 ```
 
 ### Ruby
@@ -147,13 +148,14 @@ client := sdk.NewUnixConverterSDK(map[string]any{})
 ```ruby
 require_relative "UnixConverter_sdk"
 
-client = UnixConverterSDK.new({})
+client = UnixConverterSDK.new({
+  "apikey" => ENV["UNIX-CONVERTER_APIKEY"],
+})
 
 
 # Load a specific conversion
-conversion, err = client.Conversion(nil).load(
-  { "id" => "example_id" }, nil
-)
+conversion, err = client.Conversion().load({ "id" => "example_id" })
+puts conversion
 ```
 
 ### Lua
@@ -161,13 +163,14 @@ conversion, err = client.Conversion(nil).load(
 ```lua
 local sdk = require("unix-converter_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("UNIX-CONVERTER_APIKEY"),
+})
 
 
 -- Load a specific conversion
-local conversion, err = client:Conversion(nil):load(
-  { id = "example_id" }, nil
-)
+local conversion, err = client:Conversion():load({ id = "example_id" })
+print(conversion)
 ```
 
 ## Unit testing in offline mode
@@ -186,25 +189,21 @@ const result = await client.Conversion().load({ id: 'test01' })
 ### Python
 
 ```python
-client = UnixConverterSDK.test(None, None)
-result, err = client.Conversion(None).load(
-    {"id": "test01"}, None
-)
+client = UnixConverterSDK.test()
+result, err = client.Conversion().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = UnixConverterSDK::test(null, null);
-[$result, $err] = $client->Conversion(null)->load(
-    ["id" => "test01"], null
-);
+$client = UnixConverterSDK::test();
+[$result, $err] = $client->Conversion()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Conversion(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -213,19 +212,15 @@ result, err := client.Conversion(nil).Load(
 ### Ruby
 
 ```ruby
-client = UnixConverterSDK.test(nil, nil)
-result, err = client.Conversion(nil).load(
-  { "id" => "test01" }, nil
-)
+client = UnixConverterSDK.test
+result, err = client.Conversion().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Conversion(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Conversion():load({ id = "test01" })
 ```
 
 ## How it works
@@ -329,10 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Unix Converter API
-
-- API docs: [https://freepublicapis.com/unix-converter-api](https://freepublicapis.com/unix-converter-api)
 
 ---
 

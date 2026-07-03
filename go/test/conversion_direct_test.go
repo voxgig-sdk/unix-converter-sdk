@@ -99,12 +99,14 @@ func conversionDirectSetup(mockres any) *conversionDirectSetupResult {
 	env := envOverride(map[string]any{
 		"UNIXCONVERTER_TEST_CONVERSION_ENTID": map[string]any{},
 		"UNIXCONVERTER_TEST_LIVE":    "FALSE",
+		"UNIXCONVERTER_APIKEY":       "NONE",
 	})
 
 	live := env["UNIXCONVERTER_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["UNIXCONVERTER_APIKEY"],
 		}
 		client := sdk.NewUnixConverterSDK(mergedOpts)
 
