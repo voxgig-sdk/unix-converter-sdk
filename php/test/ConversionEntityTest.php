@@ -49,8 +49,7 @@ class ConversionEntityTest extends TestCase
         // LOAD
         $conversion_ref01_ent = $client->Conversion(null);
         $conversion_ref01_match_dt0 = [];
-        [$conversion_ref01_data_dt0_loaded, $err] = $conversion_ref01_ent->load($conversion_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $conversion_ref01_data_dt0_loaded = $conversion_ref01_ent->load($conversion_ref01_match_dt0, null);
         $this->assertNotNull($conversion_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function conversion_basic_setup($extra)
         "UNIXCONVERTER_TEST_CONVERSION_ENTID" => $idmap,
         "UNIXCONVERTER_TEST_LIVE" => "FALSE",
         "UNIXCONVERTER_TEST_EXPLAIN" => "FALSE",
-        "UNIXCONVERTER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function conversion_basic_setup($extra)
     if ($env["UNIXCONVERTER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["UNIXCONVERTER_APIKEY"],
             ],
             $extra ?? [],
         ]);

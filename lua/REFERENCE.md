@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## ConversionEntity
 
 ```lua
-local conversion = client:Conversion(nil)
+local conversion = client:conversion(nil)
 ```
 
 ### Fields
@@ -102,7 +101,7 @@ local conversion = client:Conversion(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Conversion():load({ id = "conversion_id" })
+local result, err = client:conversion():load({ id = "conversion_id" })
 ```
 
 ### Common Methods

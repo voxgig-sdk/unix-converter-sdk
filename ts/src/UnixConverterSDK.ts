@@ -2,6 +2,8 @@
 
 import { ConversionEntity } from './entity/ConversionEntity'
 
+export type * from './UnixConverterTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class UnixConverterSDK {
 
 
 
+  _conversion?: ConversionEntity
+
+  // Idiomatic facade: `client.conversion.list()` / `client.conversion.load({ id })`.
+  get conversion(): ConversionEntity {
+    return (this._conversion ??= new ConversionEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.conversion` instead. */
   Conversion(data?: any) {
     const self = this
     return new ConversionEntity(self,data)

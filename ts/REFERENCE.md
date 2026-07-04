@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `UnixConverterSDK.test()`.
 ## ConversionEntity
 
 ```ts
-const conversion = client.Conversion()
+const conversion = client.conversion
 ```
 
 ### Fields
@@ -128,7 +127,7 @@ const conversion = client.Conversion()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Conversion().load({ id: 'conversion_id' })
+const result = await client.conversion.load({ id: 'conversion_id' })
 ```
 
 ### Common Methods

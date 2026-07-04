@@ -245,6 +245,9 @@ func (sdk *UnixConverterSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// Conversion returns a Conversion entity bound to this client.
+// Idiomatic usage: client.Conversion(nil).List(nil, nil) or
+// client.Conversion(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UnixConverterSDK) Conversion(data map[string]any) UnixConverterEntity {
 	return NewConversionEntityFunc(sdk, data)
 }

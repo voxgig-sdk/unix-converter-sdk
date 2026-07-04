@@ -15,9 +15,6 @@ module UnixConverterConfig
       },
       "options" => {
         "base" => "https://unixonvert.api/v1",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

@@ -49,8 +49,7 @@ class TestConversionEntity:
         # LOAD
         conversion_ref01_ent = client.Conversion(None)
         conversion_ref01_match_dt0 = {}
-        conversion_ref01_data_dt0_loaded, err = conversion_ref01_ent.load(conversion_ref01_match_dt0, None)
-        assert err is None
+        conversion_ref01_data_dt0_loaded = conversion_ref01_ent.load(conversion_ref01_match_dt0, None)
         assert conversion_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _conversion_basic_setup(extra):
         "UNIXCONVERTER_TEST_CONVERSION_ENTID": idmap,
         "UNIXCONVERTER_TEST_LIVE": "FALSE",
         "UNIXCONVERTER_TEST_EXPLAIN": "FALSE",
-        "UNIXCONVERTER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _conversion_basic_setup(extra):
     if env.get("UNIXCONVERTER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("UNIXCONVERTER_APIKEY"),
             },
             extra or {},
         ])
