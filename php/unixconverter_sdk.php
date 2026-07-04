@@ -233,10 +233,10 @@ class UnixConverterSDK
 
     private $_conversion = null;
 
-    // Idiomatic facade: $client->conversion()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Conversion() (PHP method
-    // names are case-insensitive).
-    public function conversion($data = null)
+    // Canonical facade: $client->Conversion()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->conversion()
+    // resolves here too.
+    public function Conversion($data = null)
     {
         require_once __DIR__ . '/entity/conversion_entity.php';
         if ($data === null) {

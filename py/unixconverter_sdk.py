@@ -220,25 +220,15 @@ class UnixConverterSDK:
         }
 
 
-    @property
-    def conversion(self):
-        """Idiomatic facade: client.conversion.list() / client.conversion.load({"id": ...})."""
-        from entity.conversion_entity import ConversionEntity
-        cached = getattr(self, "_conversion", None)
-        if cached is None:
-            cached = ConversionEntity(self, None)
-            self._conversion = cached
-        return cached
-
-    def Conversion(self, data=None):
-        # Deprecated: use client.conversion instead.
+    def Conversion(self, data=None) -> "ConversionEntity":
+        """Entity factory: client.Conversion().list({}) / client.Conversion().load({"id": ...})."""
         from entity.conversion_entity import ConversionEntity
         return ConversionEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "UnixConverterSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class UnixConverterSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.conversion_entity import ConversionEntity

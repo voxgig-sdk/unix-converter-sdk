@@ -32,8 +32,9 @@ client = UnixConverterSDK.new
 
 ```ruby
 begin
-  result = client.conversion.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Conversion record (raises on error).
+  conversion = client.Conversion.load({ "id" => "example_id" })
+  puts conversion
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = UnixConverterSDK.test
+client = UnixConverterSDK.test({
+  "entity" => { "conversion" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.conversion.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+conversion = client.Conversion.load({ "id" => "test01" })
+puts conversion
 ```
 
 ### Use a custom fetch function
@@ -220,7 +225,7 @@ API path: `/convert`
 
 ### Conversion
 
-Create an instance: `const conversion = client.conversion`
+Create an instance: `conversion = client.Conversion`
 
 #### Operations
 
@@ -238,8 +243,9 @@ Create an instance: `const conversion = client.conversion`
 
 #### Example: Load
 
-```ts
-const conversion = await client.conversion.load({ id: 'conversion_id' })
+```ruby
+# load returns the bare Conversion record (raises on error).
+conversion = client.Conversion.load({ "id" => "conversion_id" })
 ```
 
 
@@ -314,7 +320,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-conversion = client.conversion
+conversion = client.Conversion
 conversion.load({ "id" => "example_id" })
 
 # conversion.data_get now returns the loaded conversion data

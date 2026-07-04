@@ -26,9 +26,9 @@ import { UnixConverterSDK } from '@voxgig-sdk/unix-converter'
 
 const client = new UnixConverterSDK()
 
-// Load conversion data
-const conversion = await client.conversion.load({})
-console.log(conversion.data)
+// Load conversion data (returns a Conversion)
+const conversion = await client.Conversion().load()
+console.log(conversion)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from unixconverter_sdk import UnixConverterSDK
 client = UnixConverterSDK()
 
 
-# Load a specific conversion
-conversion = client.conversion.load({"id": "example_id"})
+# Load a specific conversion (returns the record, raises on error)
+conversion = client.Conversion().load({"id": "example_id"})
 print(conversion)
 ```
 
@@ -98,8 +98,8 @@ require_once 'unixconverter_sdk.php';
 $client = new UnixConverterSDK();
 
 
-// Load a specific conversion
-$conversion = $client->conversion()->load(["id" => "example_id"]);
+// Load a specific conversion (returns the bare record; throws on error)
+$conversion = $client->Conversion()->load(["id" => "example_id"]);
 print_r($conversion);
 ```
 
@@ -123,8 +123,8 @@ require_relative "UnixConverter_sdk"
 client = UnixConverterSDK.new
 
 
-# Load a specific conversion
-conversion = client.conversion.load({ "id" => "example_id" })
+# Load a specific conversion (returns the bare record; raises on error)
+conversion = client.Conversion.load({ "id" => "example_id" })
 puts conversion
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific conversion
-local conversion, err = client:conversion():load({ id = "example_id" })
+local conversion, err = client:Conversion():load({ id = "example_id" })
 print(conversion)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = UnixConverterSDK.test()
-const result = await client.conversion.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const conversion = await client.Conversion().load({ id: 'test01' })
+// conversion is a bare Conversion populated with mock data
+console.log(conversion)
 ```
 
 ### Python
 
 ```python
 client = UnixConverterSDK.test()
-result = client.conversion.load({"id": "test01"})
+conversion = client.Conversion().load({"id": "test01"})
+print(conversion)
 ```
 
 ### PHP
 
 ```php
-$client = UnixConverterSDK::test();
-$result = $client->conversion()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = UnixConverterSDK::test([
+    "entity" => ["conversion" => ["test01" => ["id" => "test01"]]],
+]);
+$conversion = $client->Conversion()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Conversion(nil).Load(
 ### Ruby
 
 ```ruby
-client = UnixConverterSDK.test
-result = client.conversion.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = UnixConverterSDK.test({
+  "entity" => { "conversion" => { "test01" => { "id" => "test01" } } },
+})
+conversion = client.Conversion.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:conversion():load({ id = "test01" })
+local result, err = client:Conversion():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

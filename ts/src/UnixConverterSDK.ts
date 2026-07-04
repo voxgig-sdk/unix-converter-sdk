@@ -204,14 +204,7 @@ class UnixConverterSDK {
 
 
 
-  _conversion?: ConversionEntity
-
-  // Idiomatic facade: `client.conversion.list()` / `client.conversion.load({ id })`.
-  get conversion(): ConversionEntity {
-    return (this._conversion ??= new ConversionEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.conversion` instead. */
+  // Entity access: `client.Conversion().list()` / `client.Conversion().load({ id })`.
   Conversion(data?: any) {
     const self = this
     return new ConversionEntity(self,data)

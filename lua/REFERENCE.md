@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## ConversionEntity
 
 ```lua
-local conversion = client:conversion(nil)
+local conversion = client:Conversion(nil)
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ local conversion = client:conversion(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:conversion():load({ id = "conversion_id" })
+local result, err = client:Conversion():load({ id = "conversion_id" })
 ```
 
 ### Common Methods

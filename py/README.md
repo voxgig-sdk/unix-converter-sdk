@@ -33,10 +33,12 @@ client = UnixConverterSDK()
 
 ### 3. Load a conversion
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.conversion.load({"id": "example_id"})
-    print(result)
+    conversion = client.Conversion().load({"id": "example_id"})
+    print(conversion)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = UnixConverterSDK.test()
 
-result = client.conversion.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+conversion = client.Conversion().load({"id": "test01"})
+# conversion contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -220,7 +223,7 @@ API path: `/convert`
 
 ### Conversion
 
-Create an instance: `const conversion = client.conversion`
+Create an instance: `conversion = client.Conversion()`
 
 #### Operations
 
@@ -238,8 +241,8 @@ Create an instance: `const conversion = client.conversion`
 
 #### Example: Load
 
-```ts
-const conversion = await client.conversion.load({ id: 'conversion_id' })
+```python
+conversion = client.Conversion().load({"id": "conversion_id"})
 ```
 
 
@@ -313,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-conversion = client.conversion
+conversion = client.Conversion()
 conversion.load({"id": "example_id"})
 
 # conversion.data_get() now returns the loaded conversion data

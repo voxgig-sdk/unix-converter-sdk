@@ -109,7 +109,7 @@ Alias for `UnixConverterSDK.test()`.
 ## ConversionEntity
 
 ```ts
-const conversion = client.conversion
+const conversion = client.Conversion()
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ const conversion = client.conversion
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.conversion.load({ id: 'conversion_id' })
+const result = await client.Conversion().load({ id: 'conversion_id' })
 ```
 
 ### Common Methods

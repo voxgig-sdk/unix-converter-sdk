@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ConversionEntity
 
 ```php
-$conversion = $client->conversion();
+$conversion = $client->Conversion();
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ $conversion = $client->conversion();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->conversion()->load(["id" => "conversion_id"]);
+$result = $client->Conversion()->load(["id" => "conversion_id"]);
 ```
 
 ### Common Methods

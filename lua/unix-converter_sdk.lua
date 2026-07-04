@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:conversion():list() / client:conversion():load({ id = ... })
-function UnixConverterSDK:conversion(data)
+-- Idiomatic facade: client:Conversion():list() / client:Conversion():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UnixConverterSDK:Conversion(data)
   local EntityMod = require("entity.conversion_entity")
   if data == nil then
     if self._conversion == nil then
@@ -253,12 +254,6 @@ function UnixConverterSDK:conversion(data)
     end
     return self._conversion
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:conversion() instead.
-function UnixConverterSDK:Conversion(data)
-  local EntityMod = require("entity.conversion_entity")
   return EntityMod.new(self, data)
 end
 

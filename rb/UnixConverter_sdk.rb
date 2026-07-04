@@ -208,13 +208,7 @@ class UnixConverterSDK
   end
 
 
-  # Idiomatic facade: client.conversion.list / client.conversion.load({ "id" => ... })
-  def conversion
-    require_relative 'entity/conversion_entity'
-    @conversion ||= ConversionEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.conversion instead.
+  # Canonical facade: client.Conversion.list / client.Conversion.load({ "id" => ... })
   def Conversion(data = nil)
     require_relative 'entity/conversion_entity'
     ConversionEntity.new(self, data)

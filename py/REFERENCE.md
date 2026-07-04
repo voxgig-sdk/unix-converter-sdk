@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ConversionEntity
 
 ```python
-conversion = client.conversion
+conversion = client.Conversion()
 ```
 
 ### Fields
@@ -98,7 +98,7 @@ conversion = client.conversion
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.conversion.load({"id": "conversion_id"})
+result = client.Conversion().load({"id": "conversion_id"})
 ```
 
 ### Common Methods
