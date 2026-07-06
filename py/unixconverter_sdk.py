@@ -221,7 +221,7 @@ class UnixConverterSDK:
 
 
     def Conversion(self, data=None) -> "ConversionEntity":
-        """Entity factory: client.Conversion().list({}) / client.Conversion().load({"id": ...})."""
+        """Entity factory: client.Conversion().list() / client.Conversion().load({"id": ...})."""
         from entity.conversion_entity import ConversionEntity
         return ConversionEntity(self, data)
 

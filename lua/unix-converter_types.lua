@@ -12,6 +12,9 @@
 ---@field success? boolean
 
 ---@class ConversionLoadMatch
+---@field input? table
+---@field output? table
+---@field success? boolean
 
 local M = {}
 

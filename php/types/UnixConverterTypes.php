@@ -20,7 +20,7 @@ class Conversion
     public ?bool $success = null;
 }
 
-/** Match filter for Conversion#load (any subset of Conversion fields). */
+/** Request payload for Conversion#load. */
 class ConversionLoadMatch
 {
     public ?array $input = null;

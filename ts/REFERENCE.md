@@ -116,9 +116,9 @@ const conversion = client.Conversion()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `input` | ``$OBJECT`` | No |  |
-| `output` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `input` | `Record<string, any>` | No |  |
+| `output` | `Record<string, any>` | No |  |
+| `success` | `boolean` | No |  |
 
 ### Operations
 
@@ -127,7 +127,7 @@ const conversion = client.Conversion()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Conversion().load({ id: 'conversion_id' })
+const result = await client.Conversion().load()
 ```
 
 ### Common Methods

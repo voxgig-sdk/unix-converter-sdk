@@ -90,9 +90,9 @@ local conversion = client:Conversion(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `input` | ``$OBJECT`` | No |  |
-| `output` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `input` | `table` | No |  |
+| `output` | `table` | No |  |
+| `success` | `boolean` | No |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ local conversion = client:Conversion(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Conversion():load({ id = "conversion_id" })
+local result, err = client:Conversion():load()
 ```
 
 ### Common Methods

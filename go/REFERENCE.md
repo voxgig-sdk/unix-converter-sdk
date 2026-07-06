@@ -97,9 +97,9 @@ conversion := client.Conversion(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `input` | ``$OBJECT`` | No |  |
-| `output` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `input` | `map[string]any` | No |  |
+| `output` | `map[string]any` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ conversion := client.Conversion(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Conversion(nil).Load(map[string]any{"id": "conversion_id"}, nil)
+result, err := client.Conversion(nil).Load(nil, nil)
 ```
 
 ### Common Methods

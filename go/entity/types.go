@@ -15,8 +15,7 @@ type Conversion struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-// ConversionLoadMatch mirrors the conversion fields as an all-optional match
-// filter (Go analog of Partial<Conversion>).
+// ConversionLoadMatch is the typed request payload for Conversion.LoadTyped.
 type ConversionLoadMatch struct {
 	Input *map[string]any `json:"input,omitempty"`
 	Output *map[string]any `json:"output,omitempty"`

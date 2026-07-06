@@ -8,7 +8,7 @@ Complete API reference for the UnixConverter Python SDK.
 ### Constructor
 
 ```python
-from unix-converter_sdk import UnixConverterSDK
+from unixconverter_sdk import UnixConverterSDK
 
 client = UnixConverterSDK(options)
 ```
@@ -87,9 +87,9 @@ conversion = client.Conversion()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `input` | ``$OBJECT`` | No |  |
-| `output` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `input` | `dict` | No |  |
+| `output` | `dict` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -98,7 +98,7 @@ conversion = client.Conversion()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Conversion().load({"id": "conversion_id"})
+result = client.Conversion().load()
 ```
 
 ### Common Methods

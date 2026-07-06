@@ -11,5 +11,9 @@ export interface Conversion {
   success?: boolean
 }
 
-export type ConversionLoadMatch = Partial<Conversion>
+export interface ConversionLoadMatch {
+  input?: Record<string, any>
+  output?: Record<string, any>
+  success?: boolean
+}
 

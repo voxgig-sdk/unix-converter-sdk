@@ -8,7 +8,7 @@ Complete API reference for the UnixConverter Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'unix-converter_sdk'
+require_relative 'UnixConverter_sdk'
 
 client = UnixConverterSDK.new(options)
 ```
@@ -93,9 +93,9 @@ conversion = client.Conversion
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `input` | ``$OBJECT`` | No |  |
-| `output` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `input` | `Hash` | No |  |
+| `output` | `Hash` | No |  |
+| `success` | `Boolean` | No |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ conversion = client.Conversion
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Conversion.load({ "id" => "conversion_id" })
+result = client.Conversion.load()
 ```
 
 ### Common Methods

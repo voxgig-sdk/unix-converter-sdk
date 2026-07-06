@@ -25,7 +25,7 @@ Conversion = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Conversion#load (any subset of Conversion fields).
+# Request payload for Conversion#load.
 #
 # @!attribute [rw] input
 #   @return [Hash, nil]

@@ -8,7 +8,7 @@ Complete API reference for the UnixConverter PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/unix-converter_sdk.php';
+require_once __DIR__ . '/unixconverter_sdk.php';
 
 $client = new UnixConverterSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = UnixConverterSDK::test();
 
 Create a new `ConversionEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): UnixConverterUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,9 +92,9 @@ $conversion = $client->Conversion();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `input` | ``$OBJECT`` | No |  |
-| `output` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `input` | `array` | No |  |
+| `output` | `array` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -103,24 +103,24 @@ $conversion = $client->Conversion();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Conversion()->load(["id" => "conversion_id"]);
+$result = $client->Conversion()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -129,7 +129,7 @@ Set the entity match criteria.
 Create a new `ConversionEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
