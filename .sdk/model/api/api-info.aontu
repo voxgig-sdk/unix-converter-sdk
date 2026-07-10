@@ -15,9 +15,9 @@ main: {
           url: "https://unixonvert.api/v1"
         }
       ]
+      summary: "The Unix Converter API allows users to convert between various Unix time formats and human-readable date formats."
       title: "Unix Converter API"
       version: "1.0.0"
+      website: "https://unixonvert.api"
     }
   }
-}
-

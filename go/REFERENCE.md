@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 conversion := client.Conversion(nil)
+fmt.Println(conversion.GetName()) // "conversion"
 ```
 
 ### Fields
@@ -109,6 +110,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Conversion(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

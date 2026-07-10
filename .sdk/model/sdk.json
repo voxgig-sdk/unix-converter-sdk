@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -252,14 +249,17 @@
           "url": "https://unixonvert.api/v1/"
         },
         "description": "The Unix Converter API allows users to convert between various Unix time formats and human-readable date formats. It provides easy methods for timestamp conversion, time zone adjustments, and date formatting, catering to developers in need of Unix time manipulations.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://unixonvert.api/v1"
           }
         ],
+        "summary": "The Unix Converter API allows users to convert between various Unix time formats and human-readable date formats.",
         "title": "Unix Converter API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://unixonvert.api"
       },
       "option": {},
       "target": {
@@ -312,6 +312,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -362,6 +365,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
