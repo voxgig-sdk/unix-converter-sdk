@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- UnixConverter SDK exists test
 
 local sdk = require("unix-converter_sdk")
 
