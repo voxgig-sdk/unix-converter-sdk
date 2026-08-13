@@ -43,8 +43,8 @@ class UnixConverterTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('UNIXCONVERTER_TEST_LIVE');
-        $override = self::getenv('UNIXCONVERTER_TEST_OVERRIDE');
+        $live = self::getenv('UNIX_CONVERTER_TEST_LIVE');
+        $override = self::getenv('UNIX_CONVERTER_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class UnixConverterTestRunner
             }
         }
 
-        $explain = self::getenv('UNIXCONVERTER_TEST_EXPLAIN');
+        $explain = self::getenv('UNIX_CONVERTER_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['UNIXCONVERTER_TEST_EXPLAIN'] = $explain;
+            $m['UNIX_CONVERTER_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -23,8 +23,8 @@ module UnixConverterTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("UNIXCONVERTER_TEST_LIVE")
-    override = getenv("UNIXCONVERTER_TEST_OVERRIDE")
+    live = getenv("UNIX_CONVERTER_TEST_LIVE")
+    override = getenv("UNIX_CONVERTER_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module UnixConverterTestRunner
       end
     end
 
-    explain = getenv("UNIXCONVERTER_TEST_EXPLAIN")
-    m["UNIXCONVERTER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("UNIX_CONVERTER_TEST_EXPLAIN")
+    m["UNIX_CONVERTER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

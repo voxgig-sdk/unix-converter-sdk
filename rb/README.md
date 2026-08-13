@@ -34,7 +34,7 @@ client = UnixConverterSDK.new
 
 ```ruby
 begin
-  # load returns the bare Conversion record (raises on error).
+  # load returns the ENTITY — call data_get for the Conversion record (raises on error).
   conversion = client.Conversion.load()
   puts conversion
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = UnixConverterSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 conversion = client.Conversion.load()
 puts conversion
 ```
@@ -268,7 +269,7 @@ Create an instance: `conversion = client.Conversion`
 #### Example: Load
 
 ```ruby
-# load returns the bare Conversion record (raises on error).
+# load returns the ENTITY — call data_get for the Conversion record (raises on error).
 conversion = client.Conversion.load()
 ```
 

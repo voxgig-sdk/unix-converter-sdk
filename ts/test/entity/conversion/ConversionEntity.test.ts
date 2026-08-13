@@ -26,8 +26,8 @@ import {
 describe('ConversionEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when UNIXCONVERTER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('UNIXCONVERTER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when UNIX_CONVERTER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('UNIX_CONVERTER_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = UnixConverterSDK.test()
@@ -62,7 +62,7 @@ describe('ConversionEntity', async () => {
     // LOAD
     const conversion_ref01_ent = client.Conversion()
     const conversion_ref01_match_dt0: any = {}
-    const conversion_ref01_data_dt0 = await conversion_ref01_ent.load(conversion_ref01_match_dt0)
+    const conversion_ref01_data_dt0 = (await conversion_ref01_ent.load(conversion_ref01_match_dt0)).data()
     assert(null != conversion_ref01_data_dt0)
 
 

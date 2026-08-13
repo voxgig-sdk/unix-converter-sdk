@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = UnixConverterSDK.test()
 
 const conversion = await client.Conversion().load()
-// conversion is a bare entity populated with mock response data
+// conversion is the entity, populated with mock response data
+// — call conversion.data() for the record itself
 console.log(conversion)
 ```
 

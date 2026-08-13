@@ -59,11 +59,11 @@ def conversion_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "UNIXCONVERTER_TEST_CONVERSION_ENTID" => {},
-    "UNIXCONVERTER_TEST_LIVE" => "FALSE",
+    "UNIX_CONVERTER_TEST_CONVERSION_ENTID" => {},
+    "UNIX_CONVERTER_TEST_LIVE" => "FALSE",
   })
 
-  live = env["UNIXCONVERTER_TEST_LIVE"] == "TRUE"
+  live = env["UNIX_CONVERTER_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

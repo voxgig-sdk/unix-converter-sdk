@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from unixconverter_sdk.utility.voxgig_struct import voxgig_struct as vs
 from unixconverter_sdk import UnixConverterSDK
-from core import helpers
+from unixconverter_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _conversion_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "UNIXCONVERTER_TEST_CONVERSION_ENTID": {},
-        "UNIXCONVERTER_TEST_LIVE": "FALSE",
+        "UNIX_CONVERTER_TEST_CONVERSION_ENTID": {},
+        "UNIX_CONVERTER_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("UNIXCONVERTER_TEST_LIVE") == "TRUE"
+    live = env.get("UNIX_CONVERTER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

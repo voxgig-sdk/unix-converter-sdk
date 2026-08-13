@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import UnixConverterSDK
-from core.error import UnixConverterError
-from core.result import UnixConverterResult
-from core.response import UnixConverterResponse
-from core.spec import UnixConverterSpec
-from feature.base_feature import UnixConverterBaseFeature
+from projectname_sdk.core.error import UnixConverterError
+from projectname_sdk.core.result import UnixConverterResult
+from projectname_sdk.core.response import UnixConverterResponse
+from projectname_sdk.core.spec import UnixConverterSpec
+from projectname_sdk.feature.base_feature import UnixConverterBaseFeature
 
 
 def _client():

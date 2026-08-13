@@ -100,6 +100,7 @@ class UnixConverterConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/convert',
                   'parts' => [

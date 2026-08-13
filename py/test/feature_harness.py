@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import UnixConverterControl
-from core.error import UnixConverterError
-from core.result import UnixConverterResult
-from core.spec import UnixConverterSpec
+from unixconverter_sdk.config import make_config
+from unixconverter_sdk.features import _make_feature
+from unixconverter_sdk.core.control import UnixConverterControl
+from unixconverter_sdk.core.error import UnixConverterError
+from unixconverter_sdk.core.result import UnixConverterResult
+from unixconverter_sdk.core.spec import UnixConverterSpec
 
 
 # True when this SDK was generated with the named feature.

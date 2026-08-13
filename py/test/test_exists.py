@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# UnixConverter SDK exists test
 
 import pytest
 from unixconverter_sdk import UnixConverterSDK
