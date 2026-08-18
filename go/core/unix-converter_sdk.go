@@ -23,7 +23,7 @@ func NewUnixConverterSDK(options map[string]any) *UnixConverterSDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

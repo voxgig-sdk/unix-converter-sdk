@@ -40,7 +40,7 @@ class UnixConverterSDK
         $utility = new UnixConverterUtility();
         $this->_utility = $utility;
 
-        $config = UnixConverterConfig::make_config();
+        $config = UnixConverterConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

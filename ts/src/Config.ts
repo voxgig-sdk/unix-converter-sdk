@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://unixonvert.api/v1',
+    base: "https://unixonvert.api/v1",
 
     headers: {
       "content-type": "application/json"
@@ -55,25 +55,16 @@ class Config {
     "conversion": {
       "fields": [
         {
-          "active": true,
           "name": "input",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 0
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "output",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 1
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "success",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 2
+          "type": "`$BOOLEAN`"
         }
       ],
       "name": "conversion",
@@ -83,43 +74,34 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": "2021-01-01T00:00:00Z",
                     "kind": "query",
                     "name": "date",
                     "orig": "date",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "YYYY-MM-DD HH:mm:ss",
                     "kind": "query",
                     "name": "format",
                     "orig": "format",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 1609459200,
                     "kind": "query",
                     "name": "timestamp",
                     "orig": "timestamp",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": "America/New_York",
                     "kind": "query",
                     "name": "timezone",
                     "orig": "timezone",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -141,11 +123,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

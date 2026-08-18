@@ -28,7 +28,7 @@ class UnixConverterSDK
     utility = UnixConverterUtility.new
     @_utility = utility
 
-    config = UnixConverterConfig.make_config
+    config = UnixConverterConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
