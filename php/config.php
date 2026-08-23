@@ -33,6 +33,9 @@ class UnixConverterConfig
         return [
             "main" => [
                 "name" => "UnixConverter",
+                "slug" => "unix-converter",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [

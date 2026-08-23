@@ -19,6 +19,9 @@ module UnixConverterConfig
     {
       "main" => {
         "name" => "UnixConverter",
+        "slug" => "unix-converter",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
