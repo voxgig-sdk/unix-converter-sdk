@@ -23,6 +23,7 @@ class Conversion(TypedDict, total=False):
 
 
 class ConversionLoadMatch(TypedDict, total=False):
-    input: dict
-    output: dict
-    success: bool
+    date: str
+    format: str
+    timestamp: int
+    timezone: str

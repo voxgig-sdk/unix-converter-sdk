@@ -27,18 +27,22 @@ Conversion = Struct.new(
 
 # Request payload for Conversion#load.
 #
-# @!attribute [rw] input
-#   @return [Hash, nil]
+# @!attribute [rw] date
+#   @return [String, nil]
 #
-# @!attribute [rw] output
-#   @return [Hash, nil]
+# @!attribute [rw] format
+#   @return [String, nil]
 #
-# @!attribute [rw] success
-#   @return [Boolean, nil]
+# @!attribute [rw] timestamp
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timezone
+#   @return [String, nil]
 ConversionLoadMatch = Struct.new(
-  :input,
-  :output,
-  :success,
+  :date,
+  :format,
+  :timestamp,
+  :timezone,
   keyword_init: true
 )
 

@@ -12,9 +12,10 @@
 ---@field success? boolean
 
 ---@class ConversionLoadMatch
----@field input? table
----@field output? table
----@field success? boolean
+---@field date? string
+---@field format? string
+---@field timestamp? number
+---@field timezone? string
 
 local M = {}
 

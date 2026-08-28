@@ -23,8 +23,9 @@ class Conversion
 /** Request payload for Conversion#load. */
 class ConversionLoadMatch
 {
-    public ?array $input = null;
-    public ?array $output = null;
-    public ?bool $success = null;
+    public ?string $date = null;
+    public ?string $format = null;
+    public ?int $timestamp = null;
+    public ?string $timezone = null;
 }
 

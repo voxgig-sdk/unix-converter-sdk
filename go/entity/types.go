@@ -21,9 +21,10 @@ type Conversion struct {
 
 // ConversionLoadMatch is the typed request payload for Conversion.LoadTyped.
 type ConversionLoadMatch struct {
-	Input *map[string]any `json:"input,omitempty"`
-	Output *map[string]any `json:"output,omitempty"`
-	Success *bool `json:"success,omitempty"`
+	Date *string `json:"date,omitempty"`
+	Format *string `json:"format,omitempty"`
+	Timestamp *int `json:"timestamp,omitempty"`
+	Timezone *string `json:"timezone,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

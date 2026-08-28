@@ -12,8 +12,9 @@ export interface Conversion {
 }
 
 export interface ConversionLoadMatch {
-  input?: Record<string, any>
-  output?: Record<string, any>
-  success?: boolean
+  date?: string
+  format?: string
+  timestamp?: number
+  timezone?: string
 }
 
