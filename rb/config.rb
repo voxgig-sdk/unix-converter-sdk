@@ -98,8 +98,10 @@ module UnixConverterConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/convert",
-                  "parts" => [
-                    "convert",
+                  "segments" => [
+                    {
+                      "lit" => "convert",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -113,6 +115,9 @@ module UnixConverterConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "convert",
+                  ],
                 },
               ],
             },

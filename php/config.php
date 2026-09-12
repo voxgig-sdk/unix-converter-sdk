@@ -112,8 +112,10 @@ class UnixConverterConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/convert',
-                  'parts' => [
-                    'convert',
+                  'segments' => [
+                    [
+                      'lit' => 'convert',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -126,6 +128,9 @@ class UnixConverterConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'convert',
                   ],
                 ],
               ],

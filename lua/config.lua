@@ -86,8 +86,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/convert",
-                ["parts"] = {
-                  "convert",
+                ["segments"] = {
+                  {
+                    ["lit"] = "convert",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -100,6 +102,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "convert",
                 },
               },
             },
