@@ -105,7 +105,7 @@ local result, err = client:Conversion():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
+| TypeScript | `@voxgig-sdk/unix-converter-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
 | Python | `voxgig-sdk-unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
 | PHP | `voxgig-sdk/unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/unix-converter-sdk/go` | `go get github.com/voxgig-sdk/unix-converter-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Conversion():load()
 ### TypeScript
 
 ```ts
-import { UnixConverterSDK } from '@voxgig-sdk/unix-converter'
+import { UnixConverterSDK } from '@voxgig-sdk/unix-converter-sdk'
 
 const client = new UnixConverterSDK()
 

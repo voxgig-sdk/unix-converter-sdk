@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/unix-converter",
+  "name": "@voxgig-sdk/unix-converter-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Unix Converter public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

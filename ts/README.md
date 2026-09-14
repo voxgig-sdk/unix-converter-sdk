@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UnixConverterSDK } from '@voxgig-sdk/unix-converter'
+import { UnixConverterSDK } from '@voxgig-sdk/unix-converter-sdk'
 
 const client = new UnixConverterSDK()
 ```
@@ -405,7 +405,7 @@ unix-converter/
 Import the SDK from the package root:
 
 ```ts
-import { UnixConverterSDK } from '@voxgig-sdk/unix-converter'
+import { UnixConverterSDK } from '@voxgig-sdk/unix-converter-sdk'
 ```
 
 ### Entity state
