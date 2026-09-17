@@ -105,12 +105,12 @@ local result, err = client:Conversion():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/unix-converter-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
-| Python | `voxgig-sdk-unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
-| PHP | `voxgig-sdk/unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
+| TypeScript | `@voxgig-sdk/unix-converter-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/tags) |
+| Python | `voxgig-sdk-unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/tags) |
+| PHP | `voxgig-sdk/unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/unix-converter-sdk/go` | `go get github.com/voxgig-sdk/unix-converter-sdk/go@latest` |
-| Ruby | `voxgig-sdk-unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
-| Lua | `voxgig-sdk-unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/releases) |
+| Ruby | `voxgig-sdk-unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/tags) |
+| Lua | `voxgig-sdk-unix-converter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/unix-converter-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/unix-converter-sdk/go-cli` | `go install github.com/voxgig-sdk/unix-converter-sdk/go-cli/cmd/unix-converter@latest` |
 | Go MCP server | `github.com/voxgig-sdk/unix-converter-sdk/go-mcp` | `go get github.com/voxgig-sdk/unix-converter-sdk/go-mcp@latest` |
 
